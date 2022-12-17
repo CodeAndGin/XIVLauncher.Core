@@ -145,19 +145,6 @@ class Program
                 default:
                     throw new PlatformNotSupportedException();
             }
-            if (!Config.IsIgnoringSteam ?? true)
-            {
-                try
-                {
-                    var appId = Config.IsFt == true ? STEAM_APP_ID_FT : STEAM_APP_ID;
-                    Steam.Initialize(appId);
-                }
-                catch (Exception ex)
-                {
-                    Log.Error(ex, "Couldn't init Steam with game AppIds, trying FT");
-                    Steam.Initialize(STEAM_APP_ID_FT);
-                }
-            }
         }
         catch (Exception ex)
         {
